@@ -1,0 +1,237 @@
+:root {
+  color-scheme: light;
+  --page-bg: #f4f7fa;
+  --card-bg: #ffffff;
+  --preview-bg: #edf7f5;
+  --input-bg: #ffffff;
+  --text-color: #182c3a;
+  --muted-color: #526574;
+  --border-color: #dce5eb;
+  --input-border: #8093a0;
+  --accent-color: #087f73;
+  --accent-hover: #06665c;
+  --button-text: #ffffff;
+  --error-color: #b42318;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --page-bg: #101820;
+  --card-bg: #192630;
+  --preview-bg: #203832;
+  --input-bg: #111e27;
+  --text-color: #edf4f8;
+  --muted-color: #b3c3ce;
+  --border-color: #3b505e;
+  --input-border: #78909f;
+  --accent-color: #5ee0c5;
+  --accent-hover: #8aecd7;
+  --button-text: #10251f;
+  --error-color: #ffaaa3;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--text-color);
+}
+
+.app {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  text-align: start;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  line-height: 1.4;
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.company-brand {
+  padding: 6px;
+  background: #f4f7fa;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.company-logo {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+}
+
+.language-button {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--accent-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.theme-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.request-card {
+  margin-top: 24px;
+  padding: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.request-card h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font: inherit;
+  resize: vertical;
+}
+
+textarea::placeholder {
+  color: var(--muted-color);
+  opacity: 1;
+}
+
+.character-count,
+.development-note {
+  color: var(--muted-color);
+  font-size: 0.875rem;
+}
+
+.preview {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--preview-bg);
+  border-radius: 8px;
+}
+
+.preview h3 {
+  margin-top: 0;
+  overflow-wrap: anywhere;
+}
+
+.preview p {
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.submit-button {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent-color);
+  color: var(--button-text);
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.submit-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.preview+.submit-button {
+  margin-top: 20px;
+}
+
+.error-message {
+  color: var(--error-color);
+}
+
+.suggestion-fields {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.suggestion-fields select {
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font: inherit;
+}
+
+textarea:focus,
+.suggestion-fields select:focus-visible,
+.submit-button:focus-visible,
+.language-button:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+@media (min-width: 600px) {
+  .suggestion-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .company-logo {
+    width: 170px;
+  }
+
+  .header-bar {
+    gap: 12px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .language-button:not(.theme-button) {
+    padding-inline: 12px;
+  }
+}
